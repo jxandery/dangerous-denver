@@ -15,14 +15,14 @@ def create_records(filename)
   records
 end
 
-def find_top_neighborhoods(filename, x)
+def find_top_locations(filename, category, x)
   crime_count = []
   records = create_records(filename)
-  neighborhoods = records.group_by { |header| header[:neighborhood_id] }.values
-  neighborhoods.each { |n| crime_count.push( [n.count, n.first[:neighborhood_id]] ) }
+  neighborhoods = records.group_by { |header| header[category] }.values
+  neighborhoods.each { |n| crime_count.push( [n.count, n.first[category]] ) }
   crime_count.sort.reverse.first(x)
 end
 
-puts find_top_neighborhoods('crime', 5)
-puts find_top_neighborhoods('traffic-accidents', 5)
+puts find_top_locations('crime', :neighborhood_id, 5)
+puts find_top_locations('traffic-accidents', :neighborhood_id, 5)
 
