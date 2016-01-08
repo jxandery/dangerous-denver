@@ -24,4 +24,5 @@ def find_top_neighborhoods(filename, x)
 end
 
 puts find_top_neighborhoods('crime', 5)
+puts find_top_neighborhoods('traffic-accidents', 5)
 
