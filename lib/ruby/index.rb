@@ -25,4 +25,5 @@ end
 
 puts find_top_locations('crime', :neighborhood_id, 5)
 puts find_top_locations('traffic-accidents', :neighborhood_id, 5)
+puts find_top_locations('traffic-accidents', :incident_address, 5)
 
